@@ -20,7 +20,7 @@ lib_deps:
    https://github.com/NAMeC-SSL/embedded-protocol.git#main
 ```
 
-2. Include the header files brushless.pb.h or radio_wrapper.pb.h in your source code to utilize the protocol buffer messages.
+2. Include the header files `brushless.pb.h` or `radio_wrapper.pb.h` in your source code to utilize the protocol buffer messages.
 
 By following these steps, you can seamlessly incorporate the protocol into your project.
 
