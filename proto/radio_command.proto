@@ -1,0 +1,29 @@
+syntax="proto3";
+
+enum Kicker {
+    NO_KICK = 0;
+    FLAT = 1;
+    CHIP = 2;
+}
+
+message RadioCommand {
+    // The unique ID of the robot, as identified by SSL-Vision.
+    uint32 robot_id = 1;
+
+    // Desired forward drive velocity in meters / second.
+    float normal_velocity = 2;
+
+    // Desired sideways left drive velocity in meters / second.
+    float tangential_velocity = 3;
+
+    // Desired counter-clockwise angular velocity in radians / second.
+    float angular_velocity = 4;
+
+    Kicker kick = 5;
+
+    float kick_power = 6;
+
+    bool charge = 8;
+    
+    float dribbler = 9; 
+}

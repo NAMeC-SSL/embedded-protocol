@@ -1,0 +1,20 @@
+{
+  "name": "embedded-protocol",
+  "version": "1.0.0",
+  "description": "Protocol Buffers (protobuf) embedded communication protocol for our embedded software",
+  "keywords": ["protobuf", "protocol"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NAMeC-SSL/embedded-protocol"
+  },
+  "authors": [
+    {
+      "name": "Etienne SCHMITZ",
+      "email": "contact@etienne-schmitz.com",
+      "url": "https://www.etienne-schmitz.com/"
+    }
+  ],
+  "license": "Apache-2.0",
+  "frameworks": "*",
+  "platforms": "*"
+}
