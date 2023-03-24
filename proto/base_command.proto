@@ -6,7 +6,7 @@ enum Kicker {
     CHIP = 2;
 }
 
-message RadioCommand {
+message BaseCommand {
     // The unique ID of the robot, as identified by SSL-Vision.
     uint32 robot_id = 1;
 
@@ -26,6 +26,4 @@ message RadioCommand {
     bool charge = 8;
     
     float dribbler = 9; 
-
-    bool dev = 10;
 }

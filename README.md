@@ -34,7 +34,7 @@ Extract the downloaded archive to your local machine in this folder.
 To generate code for embedded C in Linux, use the following command:
 
 ```bash
-./nanopb-x.y.z-linux-x86/generator-bin/nanopb_generator radio_wrapper.proto brushless.proto -I proto -D src
+./nanopb-x.y.z-linux-x86/generator-bin/nanopb_generator base_wrapper.proto brushless.proto radio_command.proto radio_feedback.proto  -I proto -D src
 ```
 
 ## Protocol Messages
@@ -43,7 +43,11 @@ The protocol includes the following message definitions:
 
 ### PCToBase and BaseToPC
 
-These messages facilitate the exchange of RadioCommand messages between the PC and the base station, as well as the transmission of feedback messages from the robot.
+These message facilitate the exchange of Commands messages between the PC and the base station, as well as the transmission of feedback messages receive from the robot.
+
+### BaseToRobot and RobotToBase
+
+These message facilitate the exchange of Commands and feedback between the base station and all of our robots.
 
 ### RobotToBrushless and BrushlessToRobot
 
