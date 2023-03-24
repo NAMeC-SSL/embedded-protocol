@@ -34,7 +34,7 @@ Extract the downloaded archive to your local machine in this folder.
 To generate code for embedded C in Linux, use the following command:
 
 ```bash
-./nanopb-x.y.z-linux-x86/generator-bin/nanopb_generator base_wrapper.proto brushless.proto radio_command.proto radio_feedback.proto  -I proto -D src
+./nanopb-x.y.z-linux-x86/generator-bin/nanopb_generator base_wrapper.proto brushless.proto radio_command.proto radio_feedback.proto base_feedback.proto base_command.proto  -I proto -D src
 ```
 
 ## Protocol Messages
