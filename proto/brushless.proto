@@ -12,5 +12,6 @@ message RobotToBrushless {
 }
 
 message BrushlessToRobot {
-    float measure_speed = 1;
+    uint32 error_count = 1; // Number of SPI transmission errors
+    float measured_speed = 2; // m.s-1
 }

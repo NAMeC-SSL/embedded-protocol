@@ -23,7 +23,8 @@ typedef struct _RobotToBrushless {
 } RobotToBrushless;
 
 typedef struct _BrushlessToRobot {
-    float measure_speed;
+    uint32_t error_count; /* Number of SPI transmission errors */
+    float measured_speed; /* m.s-1 */
 } BrushlessToRobot;
 
 
@@ -42,14 +43,15 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define RobotToBrushless_init_default            {_Commands_MIN, 0}
-#define BrushlessToRobot_init_default            {0}
+#define BrushlessToRobot_init_default            {0, 0}
 #define RobotToBrushless_init_zero               {_Commands_MIN, 0}
-#define BrushlessToRobot_init_zero               {0}
+#define BrushlessToRobot_init_zero               {0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define RobotToBrushless_command_tag             1
 #define RobotToBrushless_speed_tag               2
-#define BrushlessToRobot_measure_speed_tag       1
+#define BrushlessToRobot_error_count_tag         1
+#define BrushlessToRobot_measured_speed_tag      2
 
 /* Struct field encoding specification for nanopb */
 #define RobotToBrushless_FIELDLIST(X, a) \
@@ -59,7 +61,8 @@ X(a, STATIC,   SINGULAR, FLOAT,    speed,             2)
 #define RobotToBrushless_DEFAULT NULL
 
 #define BrushlessToRobot_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    measure_speed,     1)
+X(a, STATIC,   SINGULAR, UINT32,   error_count,       1) \
+X(a, STATIC,   SINGULAR, FLOAT,    measured_speed,    2)
 #define BrushlessToRobot_CALLBACK NULL
 #define BrushlessToRobot_DEFAULT NULL
 
@@ -71,7 +74,7 @@ extern const pb_msgdesc_t BrushlessToRobot_msg;
 #define BrushlessToRobot_fields &BrushlessToRobot_msg
 
 /* Maximum encoded size of messages (where known) */
-#define BrushlessToRobot_size                    5
+#define BrushlessToRobot_size                    11
 #define RobotToBrushless_size                    7
 
 #ifdef __cplusplus
