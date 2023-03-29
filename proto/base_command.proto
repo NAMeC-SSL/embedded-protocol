@@ -1,10 +1,6 @@
 syntax="proto3";
 
-enum Kicker {
-    NO_KICK = 0;
-    FLAT = 1;
-    CHIP = 2;
-}
+import "kicker.proto";
 
 message BaseCommand {
     // The unique ID of the robot, as identified by SSL-Vision.

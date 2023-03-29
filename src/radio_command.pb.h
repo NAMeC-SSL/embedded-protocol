@@ -4,17 +4,11 @@
 #ifndef PB_RADIO_COMMAND_PB_H_INCLUDED
 #define PB_RADIO_COMMAND_PB_H_INCLUDED
 #include <pb.h>
+#include "kicker.pb.h"
 
 #if PB_PROTO_HEADER_VERSION != 40
 #error Regenerate this file with the current version of nanopb generator.
 #endif
-
-/* Enum definitions */
-typedef enum _Kicker {
-    Kicker_NO_KICK = 0,
-    Kicker_FLAT = 1,
-    Kicker_CHIP = 2
-} Kicker;
 
 /* Struct definitions */
 typedef struct _RadioCommand {
@@ -37,14 +31,6 @@ typedef struct _RadioCommand {
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/* Helper constants for enums */
-#define _Kicker_MIN Kicker_NO_KICK
-#define _Kicker_MAX Kicker_CHIP
-#define _Kicker_ARRAYSIZE ((Kicker)(Kicker_CHIP+1))
-
-#define RadioCommand_kick_ENUMTYPE Kicker
-
 
 /* Initializer values for message structs */
 #define RadioCommand_init_default                {0, 0, 0, 0, _Kicker_MIN, 0, 0, 0, 0}
