@@ -1,0 +1,3 @@
+PCToBase.commands max_count:6;
+
+BaseToPC.feedbacks max_count:6;

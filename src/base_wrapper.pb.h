@@ -13,11 +13,13 @@
 
 /* Struct definitions */
 typedef struct _PCToBase {
-    pb_callback_t command;
+    pb_size_t commands_count;
+    BaseCommand commands[6];
 } PCToBase;
 
 typedef struct _BaseToPC {
-    pb_callback_t feedbacks;
+    pb_size_t feedbacks_count;
+    BaseFeedback feedbacks[6];
 } BaseToPC;
 
 
@@ -26,25 +28,25 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define PCToBase_init_default                    {{{NULL}, NULL}}
-#define BaseToPC_init_default                    {{{NULL}, NULL}}
-#define PCToBase_init_zero                       {{{NULL}, NULL}}
-#define BaseToPC_init_zero                       {{{NULL}, NULL}}
+#define PCToBase_init_default                    {0, {BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default}}
+#define BaseToPC_init_default                    {0, {BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default}}
+#define PCToBase_init_zero                       {0, {BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero}}
+#define BaseToPC_init_zero                       {0, {BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero}}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define PCToBase_command_tag                     2
+#define PCToBase_commands_tag                    1
 #define BaseToPC_feedbacks_tag                   1
 
 /* Struct field encoding specification for nanopb */
 #define PCToBase_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, MESSAGE,  command,           2)
-#define PCToBase_CALLBACK pb_default_field_callback
+X(a, STATIC,   REPEATED, MESSAGE,  commands,          1)
+#define PCToBase_CALLBACK NULL
 #define PCToBase_DEFAULT NULL
-#define PCToBase_command_MSGTYPE BaseCommand
+#define PCToBase_commands_MSGTYPE BaseCommand
 
 #define BaseToPC_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, MESSAGE,  feedbacks,         1)
-#define BaseToPC_CALLBACK pb_default_field_callback
+X(a, STATIC,   REPEATED, MESSAGE,  feedbacks,         1)
+#define BaseToPC_CALLBACK NULL
 #define BaseToPC_DEFAULT NULL
 #define BaseToPC_feedbacks_MSGTYPE BaseFeedback
 
@@ -56,8 +58,8 @@ extern const pb_msgdesc_t BaseToPC_msg;
 #define BaseToPC_fields &BaseToPC_msg
 
 /* Maximum encoded size of messages (where known) */
-/* PCToBase_size depends on runtime parameters */
-/* BaseToPC_size depends on runtime parameters */
+#define BaseToPC_size                            210
+#define PCToBase_size                            222
 
 #ifdef __cplusplus
 } /* extern "C" */

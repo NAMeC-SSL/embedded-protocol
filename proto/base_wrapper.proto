@@ -4,7 +4,7 @@ import "base_command.proto";
 import "base_feedback.proto";
 
 message PCToBase {
-    repeated BaseCommand command = 2;
+    repeated BaseCommand commands = 1;
 }
 
 message BaseToPC {
