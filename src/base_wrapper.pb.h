@@ -14,12 +14,12 @@
 /* Struct definitions */
 typedef struct _PCToBase {
     pb_size_t commands_count;
-    BaseCommand commands[6];
+    BaseCommand commands[16];
 } PCToBase;
 
 typedef struct _BaseToPC {
     pb_size_t feedbacks_count;
-    BaseFeedback feedbacks[6];
+    BaseFeedback feedbacks[16];
 } BaseToPC;
 
 
@@ -28,10 +28,10 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define PCToBase_init_default                    {0, {BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default}}
-#define BaseToPC_init_default                    {0, {BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default}}
-#define PCToBase_init_zero                       {0, {BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero}}
-#define BaseToPC_init_zero                       {0, {BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero}}
+#define PCToBase_init_default                    {0, {BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default, BaseCommand_init_default}}
+#define BaseToPC_init_default                    {0, {BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default, BaseFeedback_init_default}}
+#define PCToBase_init_zero                       {0, {BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero, BaseCommand_init_zero}}
+#define BaseToPC_init_zero                       {0, {BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero, BaseFeedback_init_zero}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define PCToBase_commands_tag                    1
@@ -58,8 +58,8 @@ extern const pb_msgdesc_t BaseToPC_msg;
 #define BaseToPC_fields &BaseToPC_msg
 
 /* Maximum encoded size of messages (where known) */
-#define BaseToPC_size                            210
-#define PCToBase_size                            222
+#define BaseToPC_size                            560
+#define PCToBase_size                            592
 
 #ifdef __cplusplus
 } /* extern "C" */

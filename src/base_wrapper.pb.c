@@ -6,10 +6,10 @@
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-PB_BIND(PCToBase, PCToBase, AUTO)
+PB_BIND(PCToBase, PCToBase, 2)
 
 
-PB_BIND(BaseToPC, BaseToPC, AUTO)
+PB_BIND(BaseToPC, BaseToPC, 2)
 
 
 
