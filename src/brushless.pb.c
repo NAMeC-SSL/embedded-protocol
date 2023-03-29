@@ -12,5 +12,8 @@ PB_BIND(RobotToBrushless, RobotToBrushless, AUTO)
 PB_BIND(BrushlessToRobot, BrushlessToRobot, AUTO)
 
 
+PB_BIND(RobotToDribbler, RobotToDribbler, AUTO)
+
+
 
 

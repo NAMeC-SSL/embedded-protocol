@@ -27,6 +27,11 @@ typedef struct _BrushlessToRobot {
     float measured_speed; /* m.s-1 */
 } BrushlessToRobot;
 
+typedef struct _RobotToDribbler {
+    Commands command;
+    float speed;
+} RobotToDribbler;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,18 +45,24 @@ extern "C" {
 #define RobotToBrushless_command_ENUMTYPE Commands
 
 
+#define RobotToDribbler_command_ENUMTYPE Commands
+
 
 /* Initializer values for message structs */
 #define RobotToBrushless_init_default            {_Commands_MIN, 0}
 #define BrushlessToRobot_init_default            {0, 0}
+#define RobotToDribbler_init_default             {_Commands_MIN, 0}
 #define RobotToBrushless_init_zero               {_Commands_MIN, 0}
 #define BrushlessToRobot_init_zero               {0, 0}
+#define RobotToDribbler_init_zero                {_Commands_MIN, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define RobotToBrushless_command_tag             1
 #define RobotToBrushless_speed_tag               2
 #define BrushlessToRobot_error_count_tag         1
 #define BrushlessToRobot_measured_speed_tag      2
+#define RobotToDribbler_command_tag              1
+#define RobotToDribbler_speed_tag                2
 
 /* Struct field encoding specification for nanopb */
 #define RobotToBrushless_FIELDLIST(X, a) \
@@ -66,16 +77,25 @@ X(a, STATIC,   SINGULAR, FLOAT,    measured_speed,    2)
 #define BrushlessToRobot_CALLBACK NULL
 #define BrushlessToRobot_DEFAULT NULL
 
+#define RobotToDribbler_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, UENUM,    command,           1) \
+X(a, STATIC,   SINGULAR, FLOAT,    speed,             2)
+#define RobotToDribbler_CALLBACK NULL
+#define RobotToDribbler_DEFAULT NULL
+
 extern const pb_msgdesc_t RobotToBrushless_msg;
 extern const pb_msgdesc_t BrushlessToRobot_msg;
+extern const pb_msgdesc_t RobotToDribbler_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define RobotToBrushless_fields &RobotToBrushless_msg
 #define BrushlessToRobot_fields &BrushlessToRobot_msg
+#define RobotToDribbler_fields &RobotToDribbler_msg
 
 /* Maximum encoded size of messages (where known) */
 #define BrushlessToRobot_size                    11
 #define RobotToBrushless_size                    7
+#define RobotToDribbler_size                     7
 
 #ifdef __cplusplus
 } /* extern "C" */
